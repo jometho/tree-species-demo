@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Tree Species - Map</title>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+    <link rel="stylesheet" href="css/map.css"/>
+
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+</head>
+<body >
+    <!-- As a heading -->
+    <nav class="navbar navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1">Forest Assesment - Tree Species by County</span>
+    </nav>
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-8" id='map'></div>
+            <div class="col-sm-4" id="info2">
+                <h4>
+                    Detailed Info goes here..
+                </h4>
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript" src="data/counties.geojson"></script>
+
+<script type="text/javascript" src="js/map.js"> </script>
+
+</body>
+</html>
