@@ -81,11 +81,15 @@ var map = L.map('map').setView([ 0.064,37.92], 6);
 		map.fitBounds(e.target.getBounds());
 	}
 
+	function populate(e){
+		document.getElementById('info2').innerHTML = "BLAH BLAH BLAH " + e.target.feature.properties.COUNTY + "<br>" + feature.properties.Shape_Leng;
+	}
+
 	function onEachFeature(feature, layer) {
 		layer.on({
 			mouseover: highlightFeature,
 			mouseout: resetHighlight,
-			click: zoomToFeature
+			click: zoomToFeature, populate
 		});
 	}
 
