@@ -1,37 +1,35 @@
 var map = L.map('map').setView([ 0.064,37.92], 6);
 
-	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-		maxZoom: 18,
-		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+	maxZoom: 18,
+	attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
 			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
 			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-		id: 'mapbox.light'
-	}).addTo(map);
+	id: 'mapbox.light'
+}).addTo(map);
 
 
-	// control that shows state info on hover
-	var info = L.control();
+// control that shows state info on hover
+var info = L.control();
 
-	info.onAdd = function (map) {
-		this._div = L.DomUtil.create('div', 'info');
-		this.update();
-		return this._div;
-	};
+info.onAdd = function (map) {
+	this._div = L.DomUtil.create('div', 'info');
+	this.update();
+	return this._div;
+};
 
-	info.update = function (props) {
-        // using attributes, construct some HTML to write into the page
+info.update = function (props) {
+    // using attributes, construct some HTML to write into the page
     
-        this._div.innerHTML = '<h4>Tree Species</h4>' +  
-        (props ?
-			'<b> County: ' + props.COUNTY + '</b><br /><b Species: >' + props.species 
-			: 'Hover over a County');
-	};
+    this._div.innerHTML = '<h4>County Info</h4>' +  
+    (props ?'<b> County Name: ' + props.COUNTY + '</b><br /><b Species: >' : 'Hover over a County');
+};
 
-	info.addTo(map);
+info.addTo(map);
 
 
-	// get color depending on population density value
-	function getColor(d) {
+// get color depending on population density value
+function getColor(d) {
 		return d > 1000 ? '#800026' :
 				d > 500  ? '#BD0026' :
 				d > 200  ? '#E31A1C' :
@@ -42,61 +40,68 @@ var map = L.map('map').setView([ 0.064,37.92], 6);
 							'#FFEDA0';
 	}
 
-	function style(feature) {
-		return {
-			weight: 2,
-			opacity: 1,
-			color: 'white',
-			dashArray: '3',
-			fillOpacity: 0.7,
-			fillColor: getColor(feature.properties.density)
-		};
+function style(feature) {
+	return {
+		weight: 2,
+		opacity: 1,
+		color: 'white',
+		dashArray: '3',
+		fillOpacity: 0.7,
+		fillColor: getColor(feature.properties.density)
+	};
+}
+
+function highlightFeature(e) {
+	var layer = e.target;
+
+	layer.setStyle({
+		weight: 5,
+		color: '#666',
+		dashArray: '',
+		fillOpacity: 0.7
+	});
+	if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+		layer.bringToFront();
 	}
 
-	function highlightFeature(e) {
-		var layer = e.target;
+	info.update(layer.feature.properties);
+}
 
-		layer.setStyle({
-			weight: 5,
-			color: '#666',
-			dashArray: '',
-			fillOpacity: 0.7
-		});
+var geojson;
 
-		if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-			layer.bringToFront();
-		}
+function resetHighlight(e) {
+	geojson.resetStyle(e.target);
+	info.update();
+}
 
-		info.update(layer.feature.properties);
-	}
+function zoomToFeature(e) {
+	map.fitBounds(e.target.getBounds());
+}
 
-	var geojson;
+function populate(e){
+	document.getElementById('info2').innerHTML = "BLAH BLAH BLAH " + e.target.feature.properties.COUNTY + "<br>" + feature.properties.Shape_Leng;
+}
 
-	function resetHighlight(e) {
-		geojson.resetStyle(e.target);
-		info.update();
-	}
+function showPopup(e){
+	console.log("Opening Modal form.")
+	$('#myPopup').modal('show');
+	console.log("Modal form opened.")
+}
 
-	function zoomToFeature(e) {
-		map.fitBounds(e.target.getBounds());
-	}
+function onEachFeature(feature, layer) {
+	layer.on({
+		mouseover: highlightFeature,
+		mouseout: resetHighlight,
+		click: zoomToFeature,
+		click:  showPopup
+		
+	});
+}
 
-	function populate(e){
-		document.getElementById('info2').innerHTML = "BLAH BLAH BLAH " + e.target.feature.properties.COUNTY + "<br>" + feature.properties.Shape_Leng;
-	}
-
-	function onEachFeature(feature, layer) {
-		layer.on({
-			mouseover: highlightFeature,
-			mouseout: resetHighlight,
-			click: zoomToFeature, populate
-		});
-	}
-
-	geojson = L.geoJson(countiesData, {
-		style: style,
-		onEachFeature: onEachFeature
-	}).addTo(map);
+geojson = L.geoJson(countiesData, {
+	style: style,
+	onEachFeature: onEachFeature
+}).addTo(map);
 
 	map.attributionControl.addAttribution('County Trees Species &copy; <a href="https://gisdigest.wordpress.com">by GIS Digest</a>');
 

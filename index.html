@@ -6,7 +6,7 @@
 
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
+	<script data-require="jquery" data-semver="2.1.4" src="https://code.jquery.com/jquery-2.1.4.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
@@ -24,192 +24,31 @@
     </nav>
     
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-8" id='map'></div>
-            <div class="col-sm-4" id="info2">
-                <h4>
-                    Info Window
-                </h4>
-                <!-- Grid row -->
-                <div class="row accordion-gradient-bcg d-flex justify-content-center">
-                    
-                        <!-- Grid column -->
-                        <div class="col">
-                    
-                            <!--Accordion wrapper-->
-                            <div class="accordion md-accordion accordion-2" id="accordionEx7" role="tablist" aria-multiselectable="true">
-                        
-                                <!-- Accordion card -->
-                                <div class="card">
-                        
-                                <!-- Card header -->
-                                <div class="card-header rgba-stylish-strong z-depth-1 mb-1" role="tab" id="treespecies">
-                                    <a data-toggle="collapse" data-parent="#accordionEx7" href="#collapse1" aria-expanded="true"
-                                    aria-controls="collapse1">
-                                    <h5 class="mb-0 white-text text-uppercase font-thin">
-                                        Tree Species <i class="fas fa-angle-down rotate-icon"></i>
-                                    </h5>
-                                    </a>
-                                </div>
-                        
-                                <!-- Card body -->
-                                <div id="collapse1" class="collapse show" role="tabpanel" aria-labelledby="treespecies" data-parent="#accordionEx7">
-                                    <div class="card-body mb-1 rgba-grey-light white-text">
-                                        <div class="list-group">
-                                            <a href="https://app.greenpap.com/#/tree-species" class="list-group-item list-group-item-action active" target="_blank">Species Example 1</a>
-                                            <a href="https://app.greenpap.com/#/tree-species" class="list-group-item list-group-item-action" target="_blank">Species Example 1</a>
-                                            <a href="https://app.greenpap.com/#/tree-species" class="list-group-item list-group-item-action" target="_blank">Species Example 1</a>
-                                            <a href="https://app.greenpap.com/#/tree-species" class="list-group-item list-group-item-action" target="_blank">Species Example 1</a>
-                                            <a href="https://app.greenpap.com/#/tree-species" class="list-group-item list-group-item-action disabled" target="_blank">Species Example 1</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
-                                <!-- Accordion card -->
-                        
-                                <!-- Accordion card -->
-                                <div class="card">
-                        
-                                <!-- Card header -->
-                                <div class="card-header rgba-stylish-strong z-depth-1 mb-1" role="tab" id="ambassadors">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx7" href="#collapse2"
-                                    aria-expanded="false" aria-controls="collapse2">
-                                    <h5 class="mb-0 white-text text-uppercase font-thin">
-                                       Tree Ambassadors <i class="fas fa-angle-down rotate-icon"></i>
-                                    </h5>
-                                    </a>
-                                </div>
-                        
-                                <!-- Card body -->
-                                <div id="collapse2" class="collapse" role="tabpanel" aria-labelledby="ambassadors" data-parent="#accordionEx7">
-                                    <div class="card-body mb-1 rgba-grey-light white-text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                    </div>
-                                </div>
-                                </div>
-                                <!-- Accordion card -->
-                        
-                                <!-- Accordion card -->
-                                <div class="card">
-                        
-                                    <!-- Card header -->
-                                    <div class="card-header rgba-stylish-strong z-depth-1 mb-1" role="tab" id="planttree">
-                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx7" href="#collapse3"
-                                        aria-expanded="false" aria-controls="collapse3">
-                                        <h5 class="mb-0 white-text text-uppercase font-thin">
-                                            Plant A Tree <i class="fas fa-angle-down rotate-icon"></i>
-                                        </h5>
-                                        </a>
-                                    </div>
-                            
-                                    <!-- Card body -->
-                                    <div id="collapse3" class="collapse" role="tabpanel" aria-labelledby="planttree" data-parent="#accordionEx7">
-                                        <div class="card-body mb-1 rgba-grey-light white-text">
-                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                                            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
-                                            beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
-                                            odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-                                            Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
-                                            quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-                                            voluptatem.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Accordion card -->
-                                <!-- Accordion card -->
-                                <div class="card">
-                        
-                                        <!-- Card header -->
-                                        <div class="card-header rgba-stylish-strong z-depth-1 mb-1" role="tab" id="adopttree">
-                                            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx7" href="#collapse3"
-                                            aria-expanded="false" aria-controls="collapse3">
-                                            <h5 class="mb-0 white-text text-uppercase font-thin">
-                                                Adopt a Tree <i class="fas fa-angle-down rotate-icon"></i>
-                                            </h5>
-                                            </a>
-                                        </div>
-                                
-                                        <!-- Card body -->
-                                        <div id="collapse3" class="collapse" role="tabpanel" aria-labelledby="adopttree" data-parent="#accordionEx7">
-                                            <div class="card-body mb-1 rgba-grey-light white-text">
-                                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                                                laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
-                                                beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
-                                                odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-                                                Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
-                                                quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-                                                voluptatem.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Accordion card -->
-                                    <!-- Accordion card -->
-                                <div class="card">
-                        
-                                        <!-- Card header -->
-                                        <div class="card-header rgba-stylish-strong z-depth-1 mb-1" role="tab" id="activities">
-                                            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx7" href="#collapse3"
-                                            aria-expanded="false" aria-controls="collapse3">
-                                            <h5 class="mb-0 white-text text-uppercase font-thin">
-                                                Community Activities <i class="fas fa-angle-down rotate-icon"></i>
-                                            </h5>
-                                            </a>
-                                        </div>
-                                
-                                        <!-- Card body -->
-                                        <div id="collapse3" class="collapse" role="tabpanel" aria-labelledby="activities" data-parent="#accordionEx7">
-                                            <div class="card-body mb-1 rgba-grey-light white-text">
-                                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                                                laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
-                                                beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
-                                                odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-                                                Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
-                                                quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-                                                voluptatem.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Accordion card -->
-                                    <!-- Accordion card -->
-                                <div class="card">
-                        
-                                        <!-- Card header -->
-                                        <div class="card-header rgba-stylish-strong z-depth-1 mb-1" role="tab" id="shopseedling">
-                                            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx7" href="#collapse3"
-                                            aria-expanded="false" aria-controls="collapse3">
-                                            <h5 class="mb-0 white-text text-uppercase font-thin">
-                                                Shop Seedlings <i class="fas fa-angle-down rotate-icon"></i>
-                                            </h5>
-                                            </a>
-                                        </div>
-                                
-                                        <!-- Card body -->
-                                        <div id="collapse3" class="collapse" role="tabpanel" aria-labelledby="shopseedling" data-parent="#accordionEx7">
-                                            <div class="card-body mb-1 rgba-grey-light white-text">
-                                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                                                laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
-                                                beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
-                                                odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-                                                Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
-                                                quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-                                                voluptatem.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Accordion card -->
-                            </div>
-                            <!--/.Accordion wrapper-->
-                    
-                        </div>
-                        <!-- Grid column -->
+        <div class="col-sm-12 mw-100" id='map'></div>
+        <div id="myPopup" class="modal fade " tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+                      <h4 class="modal-title">County Trees Details</h4>
                     </div>
-            <!-- Grid row -->
-            </div>
-        </div>
+                    <div class="modal-body">
+                        <div class="list-group">
+                            <a href="https://app.greenpap.com/#/tree-species" class="list-group-item list-group-item-action active" target="_blank">Tree Species</a>
+                            <a href="https://app.greenpap.com/#/tree-ambassador" class="list-group-item list-group-item-action" target="_blank">Tree Ambassadors</a>
+                            <a href="https://app.greenpap.com/#/plant-a-tree" class="list-group-item list-group-item-action" target="_blank">Plant a Tree</a>
+                            <a href="https://app.greenpap.com/#/community-activities" class="list-group-item list-group-item-action" target="_blank">Community Activity</a>
+                            <a href="https://app.greenpap.com/#/shop" class="list-group-item list-group-item-action disabled" target="_blank">Shop</a>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+           
+        
     </div>
 
 <script type="text/javascript" src="data/counties.geojson"></script>
